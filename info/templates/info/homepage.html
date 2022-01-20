@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>KMITL</title>
+      {% load static %}
+
+      <link href="{% static '/info/homepage/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static '/info/homepage/vendor/custom_css/custom.css' %}" rel="stylesheet">
+      <link href="{% static '/info/homepage/css/heroic-features.css' %}" rel="stylesheet">
+      <link href="{% static '/info/bootstrap/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+      
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="background-color: #ED7014;" >
+      <div class="container">
+        <img class="bd-placeholder-img card-img-top"  style="width: 3rem; padding: 2 rem;" src="{% static 'info/images/KMITL.png' %}">
+        <a class="navbar-brand" href="{% url 'index' %}"> &nbsp;&nbsp;KMITL Class Planner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-capitalize">{{ request.user.student.name }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="/accounts/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+  
+      <header class="jumbotron my-4" style="background-color: #ff9d5c;">
+        <h1 class="display-3 text-capitalize">Welcome {{ request.user.student.name }}</h1>
+      </header>
+
+      <div class="wrapper">
+        <nav id="sidebar" >
+            <div class="sidebar-header" >
+                <h3>KMITL - Engineering </h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                  <a href="{% url 'attendance' request.user.student.USN %}">Attendance</a>
+              </li>
+                <li>
+                    <a href="{% url 'marks_list' request.user.student.USN %}">Marks</a>
+                </li>
+                <li>
+                    <a href="{% url 'timetable' request.user.student.USN %}">TimeTable</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <img class="bd-placeholder-img card-img-top" style="width: 3rem; padding: 2 rem;" src="{% static 'info/images/student.png' %}">
+                  <p class="card-text">Hello dear {{ request.user.student.name }}, this is the WebApp of the KMITL providing teachers and students a new experience of learning</p>
+                </div>
+            </nav>
+
+
+    </div>
+  </div>
+</div>
+    <script src="{% static '/info/homepage/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/info/homepage/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/info/homepage/vendor/custom_js/custom.js' %}"></script>
+
+  </body>
+
+</html>
